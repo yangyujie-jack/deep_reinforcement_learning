@@ -6,7 +6,10 @@ class Learner:
         self.config = config
         self.model = model
         self.replay = replay
-        self.optimizer = optim.Adam(model.parameters())
+        self.optimizer = optim.RMSprop(model.parameters(),
+                                       lr=config.optimizer.lr,
+                                       momentum=config.optimizer.momentum,
+                                       eps=config.optimizer.eps)
 
     def learn(self):
         batch = self.replay.sample(self.config.learner.batch_size)

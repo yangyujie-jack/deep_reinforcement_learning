@@ -18,5 +18,7 @@ class Runner:
             while not self.worker.done:
                 self.worker.run_one_step()
                 self.learner.learn()
+            self.worker.end_episode()
+
 
 

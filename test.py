@@ -1,5 +1,6 @@
 import random
+import os
 
 
-a = [0]*10
-random.sample(a, 20)
+path = os.path.abspath(os.path.dirname(__file__))
+print(path)
